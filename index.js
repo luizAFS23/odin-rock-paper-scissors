@@ -1,4 +1,4 @@
-const prompt = require("prompt-sync")();
+const prompt = require("prompt-sync")({sigint: true});
 
 function getComputerChoice(){
     let choice = ['rock', 'paper', 'scissors'];
@@ -6,35 +6,33 @@ function getComputerChoice(){
     return choice[randomchoice];
 }
 
-function youLose(){
-    return "You lose.";
-}
-
-function youWin(){
-    return "You win!";
-}
 
 function playRound(userChoice, computerChoice){
-    switch(userChoice){
-        case userChoice == 'rock' && computerChoice == 'scissors':
-            console.log(youWin());
-            break;
-        case userChoice == 'scissors' && computerChoice == 'rock':
-            console.log(youLose());
-            break;
-        case userChoice == 'paper' && computerChoice == 'rock':
-            console.log(youWin());
-            break;
-        case userChoice == 'paper' && computerChoice == 'scissors':
-            console.log(youLose());
-            break;
-        default:
-            console.log("Invalid choice.");
-            break;
+    if(userChoice == 'rock' && computerChoice == 'scissors'){
+        return "You win!";
+    }else if(userChoice == 'rock' && computerChoice == 'paper'){
+        return "You lose.";
+    }else if(userChoice == 'paper' && computerChoice == 'rock'){
+        return "You win!";
+    }else if(userChoice == 'paper' && computerChoice == 'scissors'){
+        return "You lose.";
+    }else if(userChoice == 'paper' && computerChoice == 'paper'){
+        return "Draw!";
+    }else if(userChoice == 'rock' && computerChoice == 'rock'){
+        return "Draw!";
+    }else if(userChoice == 'scissors' && computerChoice == 'scissors'){
+        return "Draw!";
+    }else if(userChoice == 'scissors' && computerChoice == 'paper'){
+        return "You win!";
+    }else if(userChoice == 'scissors' && computerChoice == 'rock'){
+        return "You lose.";
+    }else{
+        return "Invalid choice.";
     }
+
 }
 
-const userChoice = prompt("Choose between rock, paper and scissors (Exactly like this!) ");
-const computerChoice = getComputerChoice();
+const userSelection = "scissors";
+const computerSelection = getComputerChoice();
 
-console.log(playRound(userChoice, computerChoice));
+console.log(playRound(userSelection, computerSelection));
