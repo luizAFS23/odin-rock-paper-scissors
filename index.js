@@ -1,4 +1,3 @@
-const prompt = require("prompt-sync")({sigint: true});
 
 function getComputerChoice(){
     let choice = ['rock', 'paper', 'scissors'];
@@ -32,7 +31,15 @@ function playRound(userChoice, computerChoice){
 
 }
 
+
 const userSelection = "scissors";
 const computerSelection = getComputerChoice();
 
-console.log(playRound(userSelection, computerSelection));
+
+function game(){
+    for(let i = 0; i <= 5; i++){
+        return playRound(userSelection, computerSelection);
+    }
+}
+
+console.log(game(userSelection, computerSelection));
