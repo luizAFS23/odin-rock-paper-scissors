@@ -8,38 +8,31 @@ function getComputerChoice(){
 
 function playRound(userChoice, computerChoice){
     if(userChoice == 'rock' && computerChoice == 'scissors'){
-        return "You win!";
+        console.log("You win!");
     }else if(userChoice == 'rock' && computerChoice == 'paper'){
-        return "You lose.";
+        console.log("You lose.");
     }else if(userChoice == 'paper' && computerChoice == 'rock'){
-        return "You win!";
+        console.log("You win!");
     }else if(userChoice == 'paper' && computerChoice == 'scissors'){
-        return "You lose.";
+        console.log("You lose.");
     }else if(userChoice == 'paper' && computerChoice == 'paper'){
-        return "Draw!";
+        console.log("Draw!");
     }else if(userChoice == 'rock' && computerChoice == 'rock'){
-        return "Draw!";
+        console.log("Draw!");
     }else if(userChoice == 'scissors' && computerChoice == 'scissors'){
-        return "Draw!";
+        console.log("Draw!");
     }else if(userChoice == 'scissors' && computerChoice == 'paper'){
-        return "You win!";
+        console.log("You win!");
     }else if(userChoice == 'scissors' && computerChoice == 'rock'){
-        return "You lose.";
+        console.log("You lose.");
     }else{
-        return "Invalid choice.";
+        console.log("Invalid choice.");
     }
 
 }
 
 
-const userSelection = "scissors";
+const userSelection = window.prompt("Please choose between rock, paper and scissors! ").toLowerCase();
 const computerSelection = getComputerChoice();
 
-
-function game(){
-    for(let i = 0; i <= 5; i++){
-        return playRound(userSelection, computerSelection);
-    }
-}
-
-console.log(game(userSelection, computerSelection));
+playRound(userSelection, computerSelection);
