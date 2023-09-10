@@ -27,14 +27,14 @@ function playRound(userChoice, computerChoice){
     }else if(userChoice == 'scissors' && computerChoice == 'rock'){
         result.innerHTML = "You lose.";
     }else{
-        console.log("Invalid choice.");
+        result.innerHTML = "Invalid choice.";
     }
 
 }
 
 let btn_paper = document.querySelector('.btn-paper');
-let btn_rock = document.querySelector('.btn-paper');
-let btn_scissors = document.querySelector('.btn-paper');
+let btn_rock = document.querySelector('.btn-rock');
+let btn_scissors = document.querySelector('.btn-scissors');
 
 
 const userSelection = window.prompt("Please choose between rock, paper and scissors! ").toLowerCase();
