@@ -6,30 +6,29 @@ function getComputerChoice(){
 }
 
 const result = document.querySelector('.result');
-let div_resultado = document.createElement('div');
-result.appendChild(div_resultado);
+const show = document.querySelector('.show');
 
 function playRound(userChoice, computerChoice){
     if(userChoice == 'rock' && computerChoice == 'scissors'){
-        result.textContent = "You win!";
+        show.textContent = "You win!";
     }else if(userChoice == 'rock' && computerChoice == 'paper'){
-        result.textContent = "You lose.";
+        show.textContent = "You lose.";
     }else if(userChoice == 'paper' && computerChoice == 'rock'){
-        result.textContent = "You win!";
+        show.textContent = "You win!";
     }else if(userChoice == 'paper' && computerChoice == 'scissors'){
-        result.textContent = "You lose.";
+        show.textContent = "You lose.";
     }else if(userChoice == 'paper' && computerChoice == 'paper'){
-        result.textContent = "Draw!";
+        show.textContent = "Draw!";
     }else if(userChoice == 'rock' && computerChoice == 'rock'){
-        result.textContent = "Draw!";
+        show.textContent = "Draw!";
     }else if(userChoice == 'scissors' && computerChoice == 'scissors'){
-        result.textContent = "Draw!";
+        show.textContent = "Draw!";
     }else if(userChoice == 'scissors' && computerChoice == 'paper'){
-        result.textContent = "You win!";
+        show.textContent = "You win!";
     }else if(userChoice == 'scissors' && computerChoice == 'rock'){
-        result.textContent = "You lose.";
+        show.textContent = "You lose.";
     }else{
-        div_resultado.textContent = "Invalid choice.";
+        show.textContent = "Invalid choice.";
     }
 
 }
