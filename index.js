@@ -5,26 +5,27 @@ function getComputerChoice(){
     return choice[randomchoice];
 }
 
+const result = document.querySelector('.result');
 
 function playRound(userChoice, computerChoice){
     if(userChoice == 'rock' && computerChoice == 'scissors'){
-        console.log("You win!");
+        result.innerHTML = "You win!";
     }else if(userChoice == 'rock' && computerChoice == 'paper'){
-        console.log("You lose.");
+        result.innerHTML = "You lose.";
     }else if(userChoice == 'paper' && computerChoice == 'rock'){
-        console.log("You win!");
+        result.innerHTML = "You win!";
     }else if(userChoice == 'paper' && computerChoice == 'scissors'){
-        console.log("You lose.");
+        result.innerHTML = "You lose.";
     }else if(userChoice == 'paper' && computerChoice == 'paper'){
-        console.log("Draw!");
+        result.innerHTML = "Draw!";
     }else if(userChoice == 'rock' && computerChoice == 'rock'){
-        console.log("Draw!");
+        result.innerHTML = "Draw!";
     }else if(userChoice == 'scissors' && computerChoice == 'scissors'){
-        console.log("Draw!");
+        result.innerHTML = "Draw!";
     }else if(userChoice == 'scissors' && computerChoice == 'paper'){
-        console.log("You win!");
+        result.innerHTML = "You win!";
     }else if(userChoice == 'scissors' && computerChoice == 'rock'){
-        console.log("You lose.");
+        result.innerHTML = "You lose.";
     }else{
         console.log("Invalid choice.");
     }
@@ -42,5 +43,3 @@ const computerSelection = getComputerChoice();
 btn_paper.addEventListener('click', () => {
     playRound(userSelection, computerSelection);
 })
-
-playRound(userSelection, computerSelection);
