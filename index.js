@@ -31,8 +31,16 @@ function playRound(userChoice, computerChoice){
 
 }
 
+let btn_paper = document.querySelector('.btn-paper');
+let btn_rock = document.querySelector('.btn-paper');
+let btn_scissors = document.querySelector('.btn-paper');
+
 
 const userSelection = window.prompt("Please choose between rock, paper and scissors! ").toLowerCase();
 const computerSelection = getComputerChoice();
+
+btn_paper.addEventListener('click', () => {
+    playRound(userSelection, computerSelection);
+})
 
 playRound(userSelection, computerSelection);
