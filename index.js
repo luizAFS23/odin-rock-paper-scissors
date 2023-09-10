@@ -1,57 +1,58 @@
-
 function getComputerChoice(){
     let choice = ['rock', 'paper', 'scissors'];
     let randomchoice = Math.floor(Math.random() * (choice.length - 1 - 0 + 1)) + 0;
     return choice[randomchoice];
-}
+}   
 
-const result = document.querySelector('.result');
-const show = document.querySelector('.show');
+let userSelection = undefined;
 
-function playRound(userChoice, computerChoice){
-    if(userChoice == 'rock' && computerChoice == 'scissors'){
-        show.textContent = "You win!";
-    }else if(userChoice == 'rock' && computerChoice == 'paper'){
-        show.textContent = "You lose.";
-    }else if(userChoice == 'paper' && computerChoice == 'rock'){
-        show.textContent = "You win!";
-    }else if(userChoice == 'paper' && computerChoice == 'scissors'){
-        show.textContent = "You lose.";
-    }else if(userChoice == 'paper' && computerChoice == 'paper'){
-        show.textContent = "Draw!";
-    }else if(userChoice == 'rock' && computerChoice == 'rock'){
-        show.textContent = "Draw!";
-    }else if(userChoice == 'scissors' && computerChoice == 'scissors'){
-        show.textContent = "Draw!";
-    }else if(userChoice == 'scissors' && computerChoice == 'paper'){
-        show.textContent = "You win!";
-    }else if(userChoice == 'scissors' && computerChoice == 'rock'){
-        show.textContent = "You lose.";
-    }else{
-        show.textContent = "Invalid choice.";
-    }
-
-}
-
+let show = document.querySelector('div.show');
 let btn_paper = document.querySelector('.btn-paper');
 let btn_rock = document.querySelector('.btn-rock');
 let btn_scissors = document.querySelector('.btn-scissors');
 
-let userSelection;
-let computerSelection = getComputerChoice();
 
-btn_paper.addEventListener('click', () => {
-    userSelection = 'paper';
-    playRound(userSelection, computerSelection);
-})
+function playRound(userSelection) {
+    let computerSelection = getComputerChoice();
+    if(userSelection == undefined) {
+        setTimeout(playRound, 100);
+    }
+    if(computerSelection === userSelection) {
+        show.textContent = 'Drawn';
+        userSelection = undefined;
+    }
 
+    if(userSelection === 'rock' && computerSelection === 'paper'){
+        show.textContent = 'You lose.';
+        userSelection = undefined;
+    }else if(userSelection === 'rock' && computerSelection === 'scissors') {
+        show.textContent = 'You win.';
+        userSelection = undefined;
+    }
 
-btn_rock.addEventListener('click', () => {
-    userSelection = 'rock';
-    playRound(userSelection, computerSelection);
-})
+    if(userSelection === 'paper' && computerSelection === 'rock'){
+        show.textContent = 'You win.';
+        userSelection = undefined;
+    }else if(userSelection === 'paper' && computerSelection === 'scissors') {
+        show.textContent = 'You lose.';
+        userSelection = undefined;
+    }
+
+    if(userSelection === 'scissors' && computerSelection === 'paper'){
+        show.textContent = 'You win.';
+        userSelection = undefined;
+    }else if(userSelection === 'scissors' && computerSelection === 'rock') {
+        show.textContent = 'You lose.';
+        userSelection = undefined;
+    }
+}
 
 btn_scissors.addEventListener('click', () => {
-    userSelection = 'scissors';
-    playRound(userSelection, computerSelection);
-})
+    playRound('scissors');
+});
+btn_paper.addEventListener('click', () => {
+    playRound('paper');
+});
+btn_rock.addEventListener('click', () => {
+    playRound('rock');
+});
