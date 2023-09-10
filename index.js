@@ -14,9 +14,7 @@ let btn_scissors = document.querySelector('.btn-scissors');
 
 function playRound(userSelection) {
     let computerSelection = getComputerChoice();
-    if(userSelection == undefined) {
-        setTimeout(playRound, 100);
-    }
+    
     if(computerSelection === userSelection) {
         show.textContent = 'Drawn';
         userSelection = undefined;
