@@ -6,28 +6,30 @@ function getComputerChoice(){
 }
 
 const result = document.querySelector('.result');
+let div_resultado = document.createElement('div');
+result.appendChild(div_resultado);
 
 function playRound(userChoice, computerChoice){
     if(userChoice == 'rock' && computerChoice == 'scissors'){
-        result.innerHTML = "You win!";
+        result.textContent = "You win!";
     }else if(userChoice == 'rock' && computerChoice == 'paper'){
-        result.innerHTML = "You lose.";
+        result.textContent = "You lose.";
     }else if(userChoice == 'paper' && computerChoice == 'rock'){
-        result.innerHTML = "You win!";
+        result.textContent = "You win!";
     }else if(userChoice == 'paper' && computerChoice == 'scissors'){
-        result.innerHTML = "You lose.";
+        result.textContent = "You lose.";
     }else if(userChoice == 'paper' && computerChoice == 'paper'){
-        result.innerHTML = "Draw!";
+        result.textContent = "Draw!";
     }else if(userChoice == 'rock' && computerChoice == 'rock'){
-        result.innerHTML = "Draw!";
+        result.textContent = "Draw!";
     }else if(userChoice == 'scissors' && computerChoice == 'scissors'){
-        result.innerHTML = "Draw!";
+        result.textContent = "Draw!";
     }else if(userChoice == 'scissors' && computerChoice == 'paper'){
-        result.innerHTML = "You win!";
+        result.textContent = "You win!";
     }else if(userChoice == 'scissors' && computerChoice == 'rock'){
-        result.innerHTML = "You lose.";
+        result.textContent = "You lose.";
     }else{
-        result.innerHTML = "Invalid choice.";
+        div_resultado.textContent = "Invalid choice.";
     }
 
 }
@@ -36,10 +38,21 @@ let btn_paper = document.querySelector('.btn-paper');
 let btn_rock = document.querySelector('.btn-rock');
 let btn_scissors = document.querySelector('.btn-scissors');
 
-
-const userSelection = window.prompt("Please choose between rock, paper and scissors! ").toLowerCase();
-const computerSelection = getComputerChoice();
+let userSelection;
+let computerSelection = getComputerChoice();
 
 btn_paper.addEventListener('click', () => {
+    userSelection = 'paper';
+    playRound(userSelection, computerSelection);
+})
+
+
+btn_rock.addEventListener('click', () => {
+    userSelection = 'rock';
+    playRound(userSelection, computerSelection);
+})
+
+btn_scissors.addEventListener('click', () => {
+    userSelection = 'scissors';
     playRound(userSelection, computerSelection);
 })
