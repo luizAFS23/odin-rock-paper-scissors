@@ -4,7 +4,6 @@ function getComputerChoice(){
     return choice[randomchoice];
 }   
 
-let userSelection = undefined;
 
 let show = document.querySelector('div.show');
 let btn_paper = document.querySelector('.btn-paper');
@@ -14,7 +13,7 @@ let btn_scissors = document.querySelector('.btn-scissors');
 
 function playRound(userSelection) {
     let computerSelection = getComputerChoice();
-    
+
     if(computerSelection === userSelection) {
         show.textContent = 'Drawn';
         userSelection = undefined;
