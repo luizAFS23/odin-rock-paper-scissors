@@ -53,3 +53,4 @@ btn_paper.addEventListener('click', () => {
 btn_rock.addEventListener('click', () => {
     playRound('rock');
 });
+
