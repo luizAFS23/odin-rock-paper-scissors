@@ -56,5 +56,3 @@ btn_rock.addEventListener('click', () => {
 
 
 
-
-
